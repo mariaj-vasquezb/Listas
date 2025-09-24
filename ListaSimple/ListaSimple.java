@@ -1,4 +1,6 @@
-public class ListaSimple<T extends Comparable<T>> {
+import java.util.Iterator;
+
+public class ListaSimple<T extends Comparable<T>> implements Iterable<T> {
     private int tamanio;
     private Nodo<T> primero;
 
@@ -136,8 +138,9 @@ public class ListaSimple<T extends Comparable<T>> {
         System.out.println("null");
     }
 
-    public java.util.Iterator<T> iterator() {
-        return new java.util.Iterator<T>() {
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
             private Nodo<T> actual = primero;
 
             @Override
